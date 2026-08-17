@@ -1,57 +1,267 @@
-</DOCTYPE html>
+<!DOCTYPE html>
 <html>
-<head>	
-<body style="background-color:darksLategray;">
-<h1 style='color:white;'>My first Website</h1>
-<h1>My name is Yoyo</h1>
-<p>I am Yoyo.I'm from Shanghai.I'm 16 years old .</p>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Yoyo's Canada Trip Website</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
 
-<h1>My Hobbies</h1>
-<p>I like playing basketball and playing the piano.</p>
-<img src="https://th.bing.com/th/id/R.02b43c451b32a13a70b31e152b0ecda0?rik=B8iwEQ%2fyz%2fTSPQ&riu=http%3a%2f%2fimage.uczzd.cn%2f859822879760411936.jpg%3fid%3d0&ehk=fB%2fDyBRo818AjB0d43FMaeo8RJxYQGDIX6fG7fAX9O4%3d&risl=&pid=ImgRaw&r=0" width="400"/>
+		body {
+			background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+			background-attachment: fixed;
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			color: white;
+			position: relative;
+			overflow-x: hidden;
+		}
+
+		/* Animated background elements */
+		body::before {
+			content: '';
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: 
+				radial-gradient(circle at 20% 50%, rgba(100, 200, 255, 0.1) 0%, transparent 50%),
+				radial-gradient(circle at 80% 80%, rgba(150, 100, 255, 0.1) 0%, transparent 50%);
+			pointer-events: none;
+			z-index: 1;
+			animation: shift 20s ease-in-out infinite;
+		}
+
+		body::after {
+			content: '';
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-image: 
+				radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+			background-size: 50px 50px;
+			pointer-events: none;
+			z-index: 1;
+			opacity: 0.5;
+		}
+
+		@keyframes shift {
+			0%, 100% {
+				background: 
+					radial-gradient(circle at 20% 50%, rgba(100, 200, 255, 0.1) 0%, transparent 50%),
+					radial-gradient(circle at 80% 80%, rgba(150, 100, 255, 0.1) 0%, transparent 50%);
+			}
+			50% {
+				background: 
+					radial-gradient(circle at 30% 60%, rgba(100, 200, 255, 0.15) 0%, transparent 50%),
+					radial-gradient(circle at 70% 70%, rgba(150, 100, 255, 0.15) 0%, transparent 50%);
+			}
+		}
+
+		/* Content wrapper to sit above background */
+		.content-wrapper {
+			position: relative;
+			z-index: 2;
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 20px;
+		}
+
+		h1 {
+			color: #ffffff;
+			text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+			margin: 20px 0;
+			font-size: 2.5em;
+			letter-spacing: 1px;
+		}
+
+		p {
+			color: #e0e0e0;
+			font-size: 16px;
+			line-height: 1.8;
+			margin: 15px 0;
+		}
+
+		.gold-text {
+			color: #ffd700;
+			text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+		}
+
+		.purple-text {
+			color: #9d4edd;
+			text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+		}
+
+		.day-section {
+			margin: 30px 0;
+			padding: 25px;
+			border-left: 5px solid #9d4edd;
+			background: linear-gradient(135deg, rgba(20, 20, 40, 0.8) 0%, rgba(30, 30, 60, 0.8) 100%);
+			border-radius: 10px;
+			box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+			backdrop-filter: blur(4px);
+			-webkit-backdrop-filter: blur(4px);
+			border: 1px solid rgba(255, 255, 255, 0.18);
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+		}
+
+		.day-section:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 12px 48px 0 rgba(157, 78, 221, 0.3);
+		}
+
+		img {
+			max-width: 100%;
+			height: auto;
+			margin: 15px 0;
+			border-radius: 8px;
+			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+			transition: transform 0.3s ease;
+		}
+
+		img:hover {
+			transform: scale(1.05);
+		}
+
+		ul {
+			color: #e0e0e0;
+			font-size: 16px;
+			line-height: 1.8;
+			margin-left: 20px;
+		}
+
+		li {
+			margin: 10px 0;
+		}
+
+		/* Header styling */
+		.header-section {
+			text-align: center;
+			padding: 40px 20px;
+			background: linear-gradient(135deg, rgba(20, 20, 40, 0.9) 0%, rgba(40, 40, 70, 0.9) 100%);
+			border-radius: 15px;
+			margin-bottom: 30px;
+			border: 2px solid rgba(157, 78, 221, 0.3);
+			box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+		}
+
+		.header-section h1 {
+			font-size: 3em;
+			margin-bottom: 10px;
+		}
+
+		/* Intro section styling */
+		.intro-section {
+			background: linear-gradient(135deg, rgba(20, 20, 40, 0.8) 0%, rgba(30, 30, 60, 0.8) 100%);
+			padding: 25px;
+			border-radius: 10px;
+			margin: 20px 0;
+			border: 1px solid rgba(255, 255, 255, 0.18);
+			box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+		}
+
+		/* Responsive design */
+		@media (max-width: 768px) {
+			h1 {
+				font-size: 1.8em;
+			}
+
+			.day-section {
+				padding: 15px;
+			}
+
+			.header-section h1 {
+				font-size: 2em;
+			}
+		}
+	</style>
 </head>
+<body>
+
+<div class="content-wrapper">
+
+	<div class="header-section">
+		<h1>My First Website</h1>
+		<h1>My name is Yoyo</h1>
+	</div>
+
+	<div class="intro-section">
+		<p>I am Yoyo. I'm from Shanghai. I'm 16 years old.</p>
+	</div>
+
+	<div class="day-section">
+		<h1>My Hobbies</h1>
+		<p>I like playing basketball and playing the piano.</p>
+		<img src="https://th.bing.com/th/id/R.02b43c451b32a13a70b31e152b0ecda0?rik=B8iwEQ%2fyz%2fTSPQ&riu=http%3a%2f%2fimage.uczzd.cn%2f859822879760411936.jpg%3fid%3d0&ehk=fB%2fDyBRo818AjB0d43FMaeo8RJxYQGDIX6fG7fAX9O4%3d&risl=&pid=ImgRaw&r=0" alt="Basketball and Piano" width="400"/>
+	</div>
+
+	<div class="day-section">
+		<h1>My Canada Goals</h1>
+		<p>I want to improve my English through immersion and real-world experience.</p>
+	</div>
+
+	<h1 class="gold-text" style="text-align: center; margin: 40px 0;">Although understanding every word from my teachers can be challenging, I am confident that this trip will help me improve my listening and comprehension skills.</h1>
+
+	<h1 class="gold-text" style="text-align: center; margin: 40px 0;">My Memories from Canada</h1>
+
+	<div class="day-section">
+		<h1 class="purple-text">August 6th - Arrival at the Airport and Suwan Academy</h1>
+		<p>I arrived in Canada today! After a long flight from Shanghai, I was excited to explore this new country. I visited Suwan Academy and was impressed by the beautiful facilities and welcoming atmosphere. It felt wonderful to start my English learning journey in such an inspiring environment.</p>
+	</div>
+
+	<div class="day-section">
+		<h1 class="purple-text">August 7th - A Shopping Adventure</h1>
+		<p>Today I went grocery shopping in Canada for the first time! I discovered that things are more expensive than I expected, but I was delighted to find Master Kong Iced Black Tea. It reminded me of home while I explore this wonderful new place. The shopping experience gave me a chance to practice English and interact with locals in a real-world setting.</p>
+	</div>
+
+	<div class="day-section">
+		<h1 class="purple-text">August 8th - Exploring the CN Tower and Ripley's Aquarium</h1>
+		<p>What an unforgettable day! Here's how I spent my time:</p>
+		<ul>
+			<li><strong>12:10 – 12:50 PM</strong>: I prepared my CityPASS and headed to the iconic CN Tower, Canada's most famous television and observation tower.</li>
+			<li><strong>12:50 – 3:00 PM</strong>: I took an amazing tour of the CN Tower. The panoramic views from the top were breathtaking! I could see the entire city of Toronto stretched out below me. The experience was both thrilling and a little exhausting, but absolutely worth it.</li>
+			<li><strong>3:30 – 5:00 PM</strong>: I used my CityPASS to visit Ripley's Aquarium of Canada, where I was amazed by the incredible marine life and underwater wonders. After exploring the aquarium, I returned to Suwan.</li>
+		</ul>
+		<p>The highlight of the day was witnessing the beautiful sunset from the CN Tower—the sky was painted in shades of orange, pink, and purple. This experience reminded me why I love exploring new places and how fortunate I am to be in Canada.</p>
+	</div>
+
+	<div class="day-section">
+		<h1 class="purple-text">August 9th - Communication and Friendship with Local Students</h1>
+		<p>Today was special and memorable! I had the opportunity to communicate with local Toronto students and make new friends. From 2:00 PM to 4:30 PM, we gathered in the school's cafeteria to share our experiences and learn about each other's cultures. It was fascinating to exchange ideas and discover our common interests despite coming from different backgrounds. The interactions were genuine and warm, and I felt welcomed by the Canadian students. This experience not only improved my English communication skills but also gave me meaningful friendships that I will treasure.</p>
+	</div>
+
+	<div class="day-section">
+		<h1 class="purple-text">August 10th - Discovering Aerospace Wonders</h1>
+		<p>Today I explored the fascinating world of aerospace and technology! From 1:30 PM to 4:00 PM, I visited the Aerospace Center with my fellow students. We learned about aircraft design, space exploration, and cutting-edge engineering innovations. The interactive exhibits and knowledgeable guides helped me understand complex scientific concepts while improving my technical English vocabulary. This experience sparked my curiosity about careers in science and technology.</p>
+	</div>
+
+	<div class="day-section">
+		<h1 class="purple-text">August 11th - Visiting the University of Toronto</h1>
+		<p>Today I had the amazing opportunity to visit the University of Toronto! The campus is incredibly vast and diverse with so many different buildings and facilities. I have to say that the architecture is truly attractive and impressive. Walking through the historic halls and modern research centers, I felt inspired by the academic atmosphere and countless opportunities available to students. The university showcases Canada's commitment to quality education and innovation. This visit has given me much to think about regarding my future educational aspirations.</p>
+	</div>
+
+	<div class="day-section">
+		<h1 class="purple-text">August 12th - McMaster University and the Magnificent Niagara Falls</h1>
+		<p>This was one of the most thrilling and unforgettable days of my entire trip! It was packed with incredible experiences and breathtaking natural beauty.</p>
+		<ul>
+			<li><strong>7:00 AM</strong>: We started early with a hearty breakfast to fuel us for the day ahead.</li>
+			<li><strong>7:30 AM – 9:00 AM</strong>: We departed for McMaster University and enjoyed approximately a one-hour guided tour. The campus was beautiful and innovative, showcasing Canada's commitment to quality education.</li>
+			<li><strong>10:00 – 11:00 AM</strong>: We left McMaster and began our journey to the legendary Niagara Falls. The anticipation built as we drew closer to this natural wonder.</li>
+			<li><strong>11:30 AM</strong>: We boarded the thrilling boat tour. The experience was exhilarating—the powerful rush of the waterfalls and the misty spray covering us created an unforgettable moment!</li>
+			<li><strong>12:30 – 1:30 PM</strong>: Our instructor led us on a scenic walk along the waterfall to its source. The breathtaking scenery—with cascading water, lush vegetation, and the sheer power of nature—left me speechless. It was truly one of the most stunning natural spectacles I have ever witnessed.</li>
+			<li><strong>1:30 – 3:00 PM</strong>: After our adventure, we enjoyed a well-deserved lunch break at Wendy's in the area, where we relaxed and shared our excitement about the incredible experiences.</li>
+			<li><strong>3:00 – 4:30 PM</strong>: We concluded our adventure with a leisurely stroll through the charming lakefront town, taking in the peaceful scenery and reflecting on this remarkable journey.</li>
+		</ul>
+		<p>I cannot express enough how amazing this day was! The power and beauty of Niagara Falls exceeded all my expectations. Getting sprayed by the mist and feeling so close to such a magnificent natural wonder was truly an extraordinary experience. McMaster University was also impressive—the campus is beautiful and full of academic excellence. This day will remain forever in my heart!</p>
+	</div>
+
+</div>
+
+</body>
 </html>
-<h1>My Canada Goals</h1>
-<p>I want to improve my Engilsh.</p>
-<h1 style="color:gold;">Maybe it's difficult for me to understand all the words which my teachers said but I believe I can understand them easily after the trip</hi>
-
-<h1 style="color:gold;">Here's my kind of memorize</h1>
-
-<h1 style="color:mediumpurple;">August 6th;airport and suon acdeme</h1>
-<p style="color:purple;">I like the academe.</p >
-<img src="C:\Users\wsdr8\Desktop\微信图片_20260814211203_1_184.jpg" width="400"/>
-<img src="C:\Users\wsdr8\Desktop\微信图片_20260814211208_2_184.jpg" width="400"/>
-<img src="C:\Users\wsdr8\Desktop\微信图片_20260814211211_3_184.jpg" width="400"/>
-<h1 style="color:mediumpurple;">August 7th;shopping</h1>
-<p style="color:white;">It's cool but also expensive.I'm excited to see Master Kong Iced Black Tea.</p >
-<img src="C:\Users\wsdr8\Desktop\微信图片_20260814213936_42_184.jpg" width="400"/>
-<h1 style="color:mediumpurple;">August 8th; CN Tower and  Ripley’s Aquarium of Canada.</h1>
-<p style="color:white;">I love the amazing view on the top of the tower.But it's a little bit tired....The sunset is so beautiful.</p >
-<img src="C:\Users\wsdr8\Desktop\微信图片_20260814211231_10_184.jpg" width="400"/>
-<img src="C:\Users\wsdr8\Desktop\微信图片_20260814211233_11_184.jpg" width="400"/>
-<img src="C:\Users\wsdr8\Desktop\微信图片_20260814211235_12_184.jpg" width="400"/>
-<img src="C:\Users\wsdr8\Desktop\微信图片_20260814211336_14_184.jpg" width="400"/>
-<h1 style="color:mediumpurple;">August 9th;comunication with local students.</h1>
-<p style="color:white;">It's interesting and I make friends with them.</p >
-<img src="C:\Users\wsdr8\Desktop\微信图片_20260814215200_43_184.jpg" width="400"/>
-<h1 style="color:meiumpurpel;">August 11th;visit the Toronto university </h1>
-<p style="color:white;">The university is so huge and diversiform.I have to say that the buildings are attractive. </p >
-<img src="C:\Users\wsdr8\Desktop\微信图片_20260814211634_22_184.jpg" width="400"/>
-<img src="C:\Users\wsdr8\Desktop\微信图片_20260814211638_25_184.jpg" width="400"/>
-<img src="C:\Users\wsdr8\Desktop\微信图片_20260814211636_24_184.jpg" width="400"/>
-
-<h1 style="color:mediumpurple;">August 12th;a trip to MC Master universityadn the most grand waterfall I've ever seen.</h1>
-<p style="color:white;">os: the water wash my head!!
-But it's amzing 
-<p style="color:white;">so as the colledge!</p >
-<img src="C:\Users\wsdr8\Desktop\微信图片_20260814211642_28_184.jpg" width="400"/>
-<img src="C:\Users\wsdr8\Desktop\微信图片_20260814211644_30_184.jpg" width="400"/>
-<img src="C:\Users\wsdr8\Desktop\微信图片_20260814211646_31_184.jpg" width="400"/>
-
-<h1 style="color:green;">August 13th;Casaloma</h1>
-<img src="C:\Users\wsdr8\Desktop\微信图片_20260814211653_36_184.jpg" width="400"/>
-
-</head>
-</html>
-<h1 style='color:mediumpurple;'>August 14th;UTM and UW.</h1>
-<p style="color:white;"
